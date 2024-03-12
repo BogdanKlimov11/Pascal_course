@@ -1,6 +1,7 @@
 type
   TArray = array of Integer;
 
+// Пузырьковая сортировка
 procedure bubble_sort(var arr: TArray);
 var
   n, i, j, temp: Integer;
