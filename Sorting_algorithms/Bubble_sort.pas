@@ -1,33 +1,26 @@
-type
-  TArray = array of Integer;
+program Bubble_sort;
 
-// Пузырьковая сортировка
-procedure bubble_sort(var arr: TArray);
+type
+    IntArray = array of Integer;
+
+procedure bubble_sort(var arr: IntArray);
 var
-  n, i, j, temp: Integer;
-  swapped: Boolean;
+    n, i, j, temp: Integer;
+    swapped: Boolean;
 begin
-  n := Length(arr);
-  // Проходим по всем элементам массива
-  for i := 0 to n - 1 do
-  begin
-    // Установим флаг, который будет служить индикатором, были ли какие-либо обмены в этой итерации
-    swapped := False;
-    // Проходим по массиву сравнивая каждую пару соседних элементов
-    // и меняем их местами, если они находятся в неправильном порядке
-    for j := 0 to n - i - 2 do
-    begin
-      if arr[j] > arr[j + 1] then
-      begin
-        // Обмен значениями
-        temp := arr[j];
-        arr[j] := arr[j + 1];
-        arr[j + 1] := temp;
-        swapped := True;
-      end;
-    end;
-    // Если в этой итерации не было ни одного обмена, то массив уже отсортирован
-    if not swapped then
-      Break;
-  end;
+    n := Length(arr);
+    repeat
+        swapped := False;
+        for i := 0 to n - 2 do
+        begin
+            if arr[i] > arr[i + 1] then
+            begin
+                temp := arr[i];
+                arr[i] := arr[i + 1];
+                arr[i + 1] := temp;
+                swapped := True;
+            end;
+        end;
+        Dec(n);
+    until not swapped;
 end;
