@@ -1,3 +1,5 @@
+program Insertion_sort;
+
 procedure insertion_sort(var arr: array of Integer);
 var
     i, j, key: Integer;
